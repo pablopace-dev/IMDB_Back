@@ -4,6 +4,8 @@ const urlApiKeyIMDB = process.env.API_IMDB;
 const urlMoviesMongo = 'movies/mongo';
 const urlBaseIMDB = 'https://imdb-api.com/API';
 
+const fetch = require('node-fetch');
+
 const fetchData = async (tipo, data) => {
     const body = data.body;
     const bodyJSON = JSON.stringify(data.body);
@@ -56,7 +58,7 @@ const fetchData = async (tipo, data) => {
 
     //Fetch
     try {
-        console.log('url',url,'optios',options)
+        console.log('url', url, 'optios', options)
         const request = await fetch(url, options);
         const response = await request.json();
         if (!response) return {
