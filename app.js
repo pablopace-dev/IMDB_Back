@@ -25,17 +25,8 @@ app.use('/api/movies/imdb', require('./routers/routerAPIExterna')); // ruta API 
 app.use('/api/favorites', require('./routers/routerAPIFavorites')); // ruta API SQL - favoritas
 app.use('/dashboard-admin', require('./routers/routerFrontAdmin')); // ruta admin para crear, editar y eliminar películas
 
-
 //404
-app.use((req, res, next) => {
-
-    res.status(404).render('404', {
-        error: '404',
-        msg: 'Página no encontrada'
-    });
-
-});
-
+app.use((req, res) => { res.status(404).send({ msg: `Ruta no encontrada: ${req.url}` }); });
 
 //Listener
 app.listen(port, () => console.log(`Server listening on port ${port}...`))
