@@ -25,6 +25,18 @@ app.use('/api/movies/imdb', require('./routers/routerAPIExterna')); // ruta API 
 app.use('/api/favorites', require('./routers/routerAPIFavorites')); // ruta API SQL - favoritas
 app.use('/dashboard-admin', require('./routers/routerFrontAdmin')); // ruta admin para crear, editar y eliminar películas
 
+
+//Awake
+app.use('/wakeup', (req, res) => {
+
+    res.status(200).json({
+        ok: true,
+        msg: `I'm awake (Movies - Back)`
+    });
+
+});
+
+
 //404
 app.use((req, res) => { res.status(404).send({ msg: `Ruta no encontrada: ${req.url}` }); });
 
