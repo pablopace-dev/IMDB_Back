@@ -29,6 +29,8 @@ app.use('/dashboard-admin', require('./routers/routerFrontAdmin')); // ruta admi
 //Awake
 app.use('/wakeup', (req, res) => {
 
+    console.log(`I'm awake (Movies - Back)`);
+
     res.status(200).json({
         ok: true,
         msg: `I'm awake (Movies - Back)`
